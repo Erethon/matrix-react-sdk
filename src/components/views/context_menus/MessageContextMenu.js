@@ -354,11 +354,13 @@ export default class MessageContextMenu extends React.Component {
         }
 
         if (isContentActionable(mxEvent)) {
-            forwardButton = (
-                <MenuItem className="mx_MessageContextMenu_field" onClick={this.onForwardClick}>
-                    { _t('Forward Message') }
-                </MenuItem>
-            );
+            if (SettingsStore.getValue("message_forwarding")) {
+                forwardButton = (
+                    <MenuItem className="mx_MessageContextMenu_field" onClick={this.onForwardClick}>
+                        { _t('Forward Message') }
+                    </MenuItem>
+                );
+            }
 
             if (this.state.canPin) {
                 pinButton = (

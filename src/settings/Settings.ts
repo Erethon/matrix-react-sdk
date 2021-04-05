@@ -156,6 +156,12 @@ export const SETTINGS: {[setting: string]: ISetting} = {
         supportedLevels: LEVELS_FEATURE,
         default: false,
     },
+    "message_forwarding": {
+        isFeature: true,
+        displayName: _td("Message Forwarding"),
+        supportedLevels: LEVELS_FEATURE,
+        default: true,
+    },
     "feature_custom_status": {
         isFeature: true,
         displayName: _td("Custom user status messages"),
