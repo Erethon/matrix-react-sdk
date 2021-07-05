@@ -224,6 +224,21 @@ export const Commands = [
         category: CommandCategories.messages,
     }),
     new Command({
+        command: 'thinking',
+        args: '<message>',
+        description: _td('Wraps message in a thought bubble . o O (...)'),
+        runFn: function(roomId, args) {
+            console.log("no log? " + args);
+            if (args) {
+                console.log("why? " + args);
+                let message = '. o O (  ' + args + ' )';
+                return successSync(ContentHelpers.makeTextMessage(message));
+            }
+            return reject(this.getUsage());
+        },
+        category: CommandCategories.messages,
+    }),
+    new Command({
         command: 'plain',
         args: '<message>',
         description: _td('Sends a message as plain text, without interpreting it as markdown'),
